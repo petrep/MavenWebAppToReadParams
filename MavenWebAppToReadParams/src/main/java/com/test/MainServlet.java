@@ -32,16 +32,21 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Console log starts..");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		out.append("Served at: ").append(request.getContextPath());
+		out.append("Received a GET request.");
+		out.append("\r");
 		
 	    Map params = request.getParameterMap();
 	    Iterator i = params.keySet().iterator();
 	    System.out.println("Params length: " + params.size());
+	    out.append("Params length: " + params.size());
 	    while ( i.hasNext() )
 	      {
 	        String key = (String) i.next();
 	        String value = ((String[]) params.get( key ))[ 0 ];
-	        System.out.println("params: " + key + " " + value);
+	        out.append("params: " + key + " " + value);
+	        out.append("\r");
 	      }
 		
 		
@@ -53,7 +58,12 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+//		doGet(request, response);
+		PrintWriter out = response.getWriter();
+		out.append("Served at: ").append(request.getContextPath());
+		out.append("\r");
+		out.append("Received a POST request.");
+		out.append("\r");
 	}
 	
 	public void handleRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
