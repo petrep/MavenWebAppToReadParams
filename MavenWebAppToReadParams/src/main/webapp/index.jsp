@@ -24,7 +24,7 @@ If that doesn't help, you can add the servlet-api.jar from your Tomcat's lib dir
 <br>
 3. Override the doGet method<br>
 <br>
-<br>
+4. After modifying the servlet, you should do a Project / Clean Project before running it<br>
 <br>
 <br>
 <br>
